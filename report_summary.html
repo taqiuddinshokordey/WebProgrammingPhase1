@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Personal Finance Management</title>
+  
+  <link rel="shortcut icon" href="https://ivoters.amanah.org.my/favicon.ico">
+
+  <meta name="csrf-token" content="FTQR6oiAn4UnQGzLSYSrKQr3vVot0ZEeynwXtAA2">
+  
+  <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+      <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+	  <script src="dashboard/jquery.table2excel.js"></script>
+
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="dashboard/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dashboard/dashboard.css">
+  <link rel="stylesheet" href="dashboard/skin-blue.min.css">
+  
+</head>
+
+<body class="skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+	
+    
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class=" sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      
+    </nav>
+  </header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <!-- Optionally, you can add icons to the links -->
+			<li class=""><a href="dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li class="" ><a href="finance_goals.html"><i class="fa fa-laptop"></i> <span>Set personal finance goals</span></a></li>
+			<li class="" ><a href="finance_daily.html"><i class="fa fa-table"></i> <span>Manage daily expenses</span></a></li>			
+        <li class="treeview">
+          <a href="report.html"><i class="fa fa-pie-chart"></i> <span>Report</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="#"><i class="fa fa-circle-thin"></i>Summary Of Expenses</a></li>
+            <li class=""><a href="report_compare.html"><i class="fa fa-circle-thin"></i>Comparison</a></li>        
+          </ul>
+        </li>
+
+		<li class="header">USER MANAGEMENT</li>
+        <li class="treeview  ">
+          <a href="#"><i class="fa fa-users"></i> <span>Taqiuddin Shokordey</span>
+            
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="password.html"><i class="fa fa-gear"></i>Change Password</a></li>
+            <li class=""><a href="javascript:AlertIt();"><i class="fa fa-sign-out"></i> Sign out</a>
+			</li>
+			
+			<script type="text/javascript">
+				function AlertIt() {
+				var answer = confirm ("Are You sure You want to log Out :(.")
+				if (answer)
+				window.location="index.html";
+				}
+			</script>
+			
+			
+			
+			
+          </ul>
+        </li>
+        
+
+        
+
+      </ul>
+      <!-- /.sidebar-menu -->
+
+    </section>
+    <!-- /.sidebar -->
+
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Report Summary
+        <small></small>
+      </h1>
+      
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Your Page Content Here -->
+        <!-- Default box -->
+		<div class="box">
+    
+
+			<div class="box-body">
+			<center>
+			<a href="#" class="previous">&laquo; January</a>
+				<a href="#" class="next">March&raquo;</a>
+			&nbsp  &nbsp &nbsp &nbsp
+			</center>
+		
+				<div id="container" style="width: 100%; height: 100%">
+				<script>
+						anychart.onDocumentReady(function() 
+						{
+
+							  // set the data
+							  var data = [
+								  {x: "Clothing", value: 97.60},
+								  {x: "Automotive", value: 10.00},
+								  {x: "Stationery", value: 7.00},
+								  {x: "Cash", value: 5.00},
+								  {x: "Misc", value: 4.90},
+								  {x: "Tax", value: 1.06},
+								  
+								  
+							  ];
+
+							  // create the chart
+							  var chart = anychart.pie();
+
+							  // set the chart title
+							  chart.title("Expense Report for February by Category");
+
+							  // add the data
+							  chart.data(data);
+
+							  // display the chart in the container
+							  chart.container('container');
+							  chart.draw();
+
+							});
+					</script>
+				
+				</div>
+				
+					
+				<table>
+					  <tr>
+						<th></th>
+						<th>Category</th>
+						<th>Percent</th>
+						<th>Amount</th>
+					  </tr>
+					  <tr>
+						<td bgcolor="#64B5F6"></td>
+						<td>Clothing</td>
+						<td>77.0</td>
+						<td>97.60</td>
+					  </tr>
+					  <tr>
+						<td bgcolor="#1976D2"></td>
+						<td>Automotive</td>
+						<td>7.96</td>
+						<td>10.00</td>
+					  </tr>
+					  <tr>
+						<td bgcolor="#EF6C00"></td>
+						<td>Stationery</td>
+						<td>5.58</td>
+						<td>7.00</td>
+					  </tr>
+					  <tr>
+						<td bgcolor="#FFD54F"></td>
+						<td>Cash</td>
+						<td>3.98</td>
+						<td>5.00</td>
+					  </tr>
+					  <tr>
+						<td bgcolor="#455A64"></td>
+						<td>Misc</td>
+						<td>3.90</td>
+						<td>4.90</td>
+					  </tr>
+					  <tr>
+						<td bgcolor="#96A6A6"></td>
+						<td>Tax</td>
+						<td>0.84</td>
+						<td>1.06</td>
+					  </tr>
+				</table>
+			</div>
+	
+
+  
+
+
+   
+			
+
+		</div>
+  
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 1.0.0
+    </div>
+    <!-- Default to the left -->
+    &copy; 2018 Personal Finance Management <small>by<strong> Obi Wan Kenobi Development Team</strong></small> |  
+    
+  </footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 2.2.3 -->
+<script src="dashboard/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="dashboard/bootstrap.min.js"></script>
+<!-- PACE -->
+
+
+
+<!-- AdminLTE App -->
+<script src="https://ivoters.amanah.org.my/js/app.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$( "#Accordion1" ).accordion(); 
+});
+</script>
+</body>
+</html>

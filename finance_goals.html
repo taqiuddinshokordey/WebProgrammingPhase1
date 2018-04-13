@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Personal Finance Management</title>
+  
+  <link rel="shortcut icon" href="https://ivoters.amanah.org.my/favicon.ico">
+
+  <meta name="csrf-token" content="FTQR6oiAn4UnQGzLSYSrKQr3vVot0ZEeynwXtAA2">
+
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="dashboard/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dashboard/dashboard.css">
+  <link rel="stylesheet" href="dashboard/skin-blue.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+	<style>
+		.container {
+			position: relative;
+			text-align: center;
+			color: black;
+			font-size: 100px;
+		}
+		.centered {
+			position: absolute;
+			top: 60%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+
+</head>
+
+<body class="skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+	
+    
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class=" sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      
+    </nav>
+  </header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <!-- Optionally, you can add icons to the links -->
+			<li class="active"><a href="dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li class="" ><a href="finance_goals.html"><i class="fa fa-laptop"></i> <span>Set personal finance goals</span></a></li>
+			<li class="" ><a href="finance_daily.html"><i class="fa fa-table"></i> <span>Manage daily expenses</span></a></li>			
+        <li class="treeview  ">
+          <a href="report.html"><i class="fa fa-pie-chart"></i> <span>Report</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="report_summary.html"><i class="fa fa-circle-thin"></i>Summary Of Expenses</a></li>
+            <li class=""><a href="report_compare.html"><i class="fa fa-circle-thin"></i>Comparison</a></li>       
+          </ul>
+        </li>
+
+		<li class="header">USER MANAGEMENT</li>
+        <li class="treeview  ">
+          <a href="#"><i class="fa fa-users"></i> <span>Taqiuddin Shokordey</span>
+            
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="password.html"><i class="fa fa-gear"></i>Change Password</a></li>
+            <li class=""><a href="javascript:AlertIt();"><i class="fa fa-sign-out"></i> Sign out</a>
+			</li>
+			
+			<script type="text/javascript">
+				function AlertIt() {
+				var answer = confirm ("Are You sure You want to log Out :(.")
+				if (answer)
+				window.location="index.html";
+				}
+			</script>
+			
+			
+          </ul>
+        </li>
+        
+
+        
+
+      </ul>
+      <!-- /.sidebar-menu -->
+
+    </section>
+    <!-- /.sidebar -->
+
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Finance Salary and Goals
+        <small></small>
+      </h1>
+      
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Your Page Content Here -->
+        <!-- Default box -->
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Salary</h3>
+	  
+		<table class="table table-dark">
+		  <thead>
+			<tr>
+			  <th scope="col">No.</th>
+			  <th scope="col">Description</th>
+			  <th scope="col">Working Type</th>
+			  <th scope="col">Salary</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>Programmer</td>
+			  <td>Full Time</td>
+			  <td>RM 5000</td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>Promoter</td>
+			  <td>Part time</td>
+			  <td>RM 600</td>
+			</tr>
+		  </tbody>
+		</table>
+		<button type="button" onclick="addSalaryFunction()" class="btn btn-default" aria-label="Left Align">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true">&nbsp;Add new salary</span>
+		</button>
+		<br>
+		<br>
+		<div id="Addnewsalary" class="panel panel-default" style="width:50%; display:none">
+		  <div class="panel-heading">Add new salary</div>
+		  <div class="panel-body">
+			<form>
+			  <div class="form-group">
+				<label for="exampleInputJobDesc">Job Description</label>
+				<input type="JobDesc" class="form-control" id="JobDesc" placeholder="Example: Programmer">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputJobSala">Job Salary</label>
+				<div class="input-group">
+					<span class="input-group-addon">RM</span>
+					<input type="JobSala" class="form-control" id="exampleInputJobSala" placeholder="Example: 5000" width="50px">
+				</div>
+			  </div>
+			  <div class="form-group">
+				  <label for="exampleInputWorkType">Working Type</label>
+				  
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" name="gridRadios" id="JobTypeFull" value="Full Time" checked>
+					  <label for="exampleInputJobType">Full Time </label>
+						&nbsp; &nbsp;
+					  <input class="form-check-input" type="radio" name="gridRadios" id="JobTypePart" value="Part Time">
+					  <label for="exampleInputJobType">	Part Time </label>
+					</div>
+			  </div>
+			  <button id="btnSalary" type="submit" onclick="addFunction()" class="btn btn-primary">Add Salary</button>
+			</form>
+		  </div>
+		</div>
+    </div>
+	
+		<!-- goals -->
+	 <div class="container">
+	  <img src="images\b.png" style="width:30%;">
+	  <div class="centered">30</div>
+	</div> 
+	<div class="box-header with-border">
+      <h3 class="box-title">Goals</h3>
+	  <table class="table table-dark">
+		  <thead>
+			<tr>
+			  <th scope="col">No.</th>
+			  <th scope="col">Goal</th>
+			  <th scope="col">Period</th>
+			  <th scope="col">Amount</th>
+			  <th scope="col">Daily limit</th>
+			  <th scope="col">Balance</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>Travel(Tokyo)</td>
+			  <td>01/12/2018</td>
+			  <td>RM 3000</td>
+			  <td>RM 30</td>
+			  <td>RM 50</td>
+			</tr>
+		  </tbody>
+		</table>
+		<button type="button" onclick="addGoalFunction()" class="btn btn-default" aria-label="Left Align">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true">&nbsp;Add new goal</span>
+		</button>
+		<br>
+		<br>
+		<div id="Addnewgoal" class="panel panel-default" style="width:50%; display:none">
+		  <div class="panel-heading">Add new goal</div>
+		  <div class="panel-body">
+			<form>
+			  <div class="form-group">
+				<label for="exampleInputGoalDesc">Goal Description</label>
+				<input type="GoalDesc" class="form-control" id="GoalDesc" placeholder="Example: New Car">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputGoalAmount">Goal Amount</label>
+				<div class="input-group">
+					<span class="input-group-addon">RM</span>
+					<input type="GoalAmount" class="form-control" id="exampleInputGoalAmount" placeholder="Example: 5000" width="50px">
+				</div>
+			  </div>
+			  <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='date' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+			  <div class="form-group">
+				  <label for="exampleInputDailySpent">Daily limit</label>
+				  <div class="input-group">
+					<span class="input-group-addon">RM</span>
+					<input type="Goaldaily" class="form-control" id="exampleInputGoalDaily" value="30" width="50px" disabled="true">
+				</div>
+			  </div>
+			  <button id="btnGoal" type="submit" onclick="addFunction()" class="btn btn-primary">Add Goal</button>
+			</form>
+		  </div>
+		</div>
+	  
+    </div>
+
+    
+  </div>
+  <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 1.0.0
+    </div>
+    <!-- Default to the left -->
+    &copy; 2018 Personal Finance Management <small>by<strong> Obi Wan Kenobi Development Team</strong></small> |  
+    
+  </footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 2.2.3 -->
+<script src="dashboard/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="dashboard/bootstrap.min.js"></script>
+<!-- PACE -->
+<script>
+	function addSalaryFunction() {
+    var x = document.getElementById("Addnewsalary");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+	}
+	
+	function addGoalFunction() {
+    var x = document.getElementById("Addnewgoal");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+	}
+	
+	function addFunction() {
+	alert("Your data is successfully inserted");
+	}
+</script>
+		
+
+<script src="https://ivoters.amanah.org.my/js/app.min.js"></script>
+
+
+</body>
+</html>
